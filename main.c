@@ -68,7 +68,7 @@ void main()
 		{
 		    if((strlen(p[i]) > 12) || strlen(p[i]) < 3)
 		    {
-		        printf("large or small string detected \n");
+		        printf("large or small string =%s detected at position = %d \n",p[i], i);
 		        break;
 		    }
 			if ((strcmp(p[i], input[k]) == 0))
