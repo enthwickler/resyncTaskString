@@ -1,6 +1,7 @@
 /* pending work:
 optimi
 inten
+
 caps small valid case */
 #include <stdio.h>
 #include <string.h>
@@ -8,7 +9,7 @@ caps small valid case */
  
 void main()
 {
-    int count = 0, c = 0, i, j = 0, k, l, space = 0, NA = 0,tempcnt = 0,z = 0;
+    int count = 0, c = 0, i, j = 0, k, l, space = 0, NA = 0,tempcnt = 0,z = 0,flagCompare = 0;
     char str[100], p[50][100], str1[20], ptr1[50][100], cmp[50];
 	char input[100][15] = {"print","happy","against","monkey","need","different","effect","sheep","paper","horse",
 "parallel","journey","kind","account","opinion","lock","knowledge","look","weather","join","market","space","married",
@@ -69,19 +70,27 @@ void main()
 		    if((strlen(p[i]) > 12) || strlen(p[i]) < 3)
 		    {
 		        printf("large or small string =%s detected at position = %d \n",p[i], i);
+				flagCompare = 1;
 		        break;
 		    }
 			if ((strcmp(p[i], input[k]) == 0))
 			{
 				printf("String = %s " "is found position = %d\n",p[i] ,k);
+				flagCompare = 0;
 				break;
 				
 			}
 			 else
 			{
+				flagCompare = 1;
 			    tempcnt++;
 				
 			} 	
+		}
+		if(flagCompare == 1)
+		{
+			printf("WARNING::String = %s is not found\n",p[i]);
+			flagCompare = 0;
 		}
     }	
 	printf("tempcnt = %d", tempcnt);
