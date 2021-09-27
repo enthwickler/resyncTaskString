@@ -1,4 +1,7 @@
-
+/* pending work:
+optimi
+inten
+caps small valid case */
 #include <stdio.h>
 #include <string.h>
 #define MAX_STR 97
@@ -63,6 +66,11 @@ void main()
     {
     for (k = 0; k < 95 ; k++)
 		{
+		    if((strlen(p[i]) > 12) || strlen(p[i]) < 3)
+		    {
+		        printf("large or small string detected \n");
+		        break;
+		    }
 			if ((strcmp(p[i], input[k]) == 0))
 			{
 				printf("String = %s " "is found position = %d\n",p[i] ,k);
